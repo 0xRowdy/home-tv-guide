@@ -84,13 +84,15 @@ def main():
     for line in open("lineup.txt", encoding="utf-8"):
         if not line.strip() or line.startswith("#"):
             continue
-        num, group, name, sname, hint = [p.strip() for p in line.rstrip("\n").split("|")]
+        parts = [p.strip() for p in line.rstrip("\n").split("|")]
+        num, group, name, sname, hint = parts[:5]
+        logo_override = parts[5] if len(parts) > 5 else ""
         cat = None
         if "@" in sname:
             sname, cat = sname.rsplit("@", 1)
         matches = [s for s in by_name.get(sname, []) if cat is None or s["category_id"] == cat]
         sid = matches[0]["stream_id"] if matches else None
-        logo = matches[0].get("stream_icon", "") if matches else ""
+        logo = logo_override or (matches[0].get("stream_icon", "") if matches else "")
         epg, alts = best_epg(hint, ids)
         flag = []
         if not sid: flag.append("NO STREAM")
