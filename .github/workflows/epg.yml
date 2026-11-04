@@ -1,0 +1,40 @@
+name: Build guide
+
+on:
+  schedule:
+    - cron: "15 9,21 * * *"   # twice a day (3:15 am / 3:15 pm Mountain)
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [lineup_resolved.tsv, build_epg.py]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  actions: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build guide
+        run: python3 build_epg.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4
+      # GitHub pauses scheduled workflows after 60 days without repo activity; re-enabling keeps it running.
+      - name: Keep schedule alive
+        run: gh workflow enable epg.yml --repo "$GITHUB_REPOSITORY"
+        env:
+          GH_TOKEN: ${{ github.token }}

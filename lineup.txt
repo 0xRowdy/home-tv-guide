@@ -1,0 +1,210 @@
+# Home TV lineup. One line per channel:
+#   number | group | display name | exact Smartiflix stream name | guide search hint (optional)
+# The guide hint is resolved to an epgshare01 channel id by resolve_epg.py.
+
+# ---------- Denver Locals ----------
+2   | Denver Locals | CW2 Denver (KWGN)            | US: CW 2 (KWGN) DERVER | KWGN-DT
+4   | Denver Locals | CBS4 Denver (KCNC)           | US: CBS 4 (KCNC) DENVER HD | KCNC-DT
+6   | Denver Locals | Rocky Mountain PBS (KRMA)    | TV: DENVER, CO KRMA PBS 6 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ | KRMA-DT
+7   | Denver Locals | Denver7 ABC (KMGH)           | US: ABC 7 (KMGH) DENVER HD | KMGH-DT
+9   | Denver Locals | 9NEWS NBC (KUSA)             | US: NBC 9 (KUSA) DENVER (H) ᴿᴬᵂ | KUSA-DT
+12  | Denver Locals | PBS12 Denver (KBDI)          | TV: DENVER, CO KBDI PBS 12 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ | KBDI-DT
+20  | Denver Locals | My20 Denver (KTVD)           | TV: DENVER, CO KTVD MNT 20 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ | KTVD-DT
+31  | Denver Locals | FOX31 Denver (KDVR)          | US: FOX 31 (KDVR) DENVER HD | KDVR-DT
+40  | Denver Locals | CBS News Colorado 24/7       | AT&T: CBS NEWS COLORADO ᴿᴬᵂ |
+41  | Denver Locals | Denver7 News 24/7            | PRIME: ABC DENVER NEWS (KMGH) ᴿᴬᵂ |
+
+# ---------- News ----------
+100 | News | CNN                     | US: CNN HD | CNN
+101 | News | HLN                     | US: HLN HD | HLN
+102 | News | Fox News                | US: FOX NEWS HD | Fox News Channel
+103 | News | MS NOW (MSNBC)          | US: MSNBC HD | MS NOW
+104 | News | CNBC                    | US: CNBC HD | CNBC
+105 | News | Fox Business            | US: FOX BUSINESS NETWORK HD | Fox Business
+106 | News | Bloomberg TV            | US: BLOOMBERG HD | Bloomberg
+107 | News | NewsNation              | US: NEWS NATION HD | NewsNation
+108 | News | Newsmax                 | US: NEWSMAX HD | Newsmax
+109 | News | C-SPAN                  | US: C-SPAN 1 HD | CSPAN
+110 | News | C-SPAN 2                | US: C-SPAN 2 HD | CSPAN2
+111 | News | The Weather Channel     | US: THE WEATHER CHANNEL HD | Weather Channel
+112 | News | FOX Weather             | AT&T: FOX WEATHER ᴿᴬᵂ |
+113 | News | ABC News Live           | US: ABC NEWS | ABC News Live
+114 | News | CBS News 24/7           | AT&T: CBS NEWS 24/7 ᴿᴬᵂ | CBS News
+115 | News | NBC News NOW            | AT&T: NBC NEWS NOW ᴿᴬᵂ |
+116 | News | LiveNOW from FOX        | US: LIVENOW FROM FOX |
+117 | News | BBC News                | US: BBC WORLD NEWS | BBC News North America
+118 | News | Scripps News            | AT&T: SCRIPPS NEWS ᴿᴬᵂ | Scripps News
+
+# ---------- Entertainment ----------
+200 | Entertainment | A&E                    | US: A&E HD | A and E
+201 | Entertainment | AMC                    | US: AMC HD | AMC
+202 | Entertainment | Animal Planet          | US: ANIMAL PLANET HD | Animal Planet
+203 | Entertainment | BBC America            | US: BBC AMERICA HD | BBC America
+204 | Entertainment | BET                    | US: BET HD | BET HD
+205 | Entertainment | Bravo                  | US: BRAVO HD | Bravo
+206 | Entertainment | CMT                    | US: CMT HD | CMT
+207 | Entertainment | Comedy Central         | US: COMEDY CENTRAL HD | Comedy Central
+208 | Entertainment | Cooking Channel        | US: COOKING CHANNEL HD | Cooking Channel
+209 | Entertainment | Court TV               | US: COURT TV HD | Court TV
+210 | Entertainment | Crime & Investigation  | US: CRIME & INVESTIGATION HD | Crime Investigation
+211 | Entertainment | Destination America    | US: DESTINATION AMERICA HD | Destination America
+212 | Entertainment | Discovery              | US: DISCOVERY HD | Discovery Channel
+213 | Entertainment | Discovery Life         | US: DISCOVERY LIFE HD | Discovery Life
+214 | Entertainment | E!                     | US: E! ENTERTAINMENT HD | E! Entertainment
+215 | Entertainment | Food Network           | US: FOOD NETWORK HD | Food Network
+216 | Entertainment | Freeform               | US: FREEFORM EAST HD | Freeform
+217 | Entertainment | FX                     | US: FX HD | FX
+218 | Entertainment | FXX                    | US: FXX HD | FXX
+219 | Entertainment | FYI                    | US: FYI HD | FYI
+220 | Entertainment | Game Show Network      | US: GSN HD | Game Show Network
+221 | Entertainment | Hallmark Channel       | US: HALLMARK HD | Hallmark Channel
+222 | Entertainment | Hallmark Mystery       | US: HALLMARK MOVIES/MYSTERIES 4K | Hallmark Mystery
+223 | Entertainment | Hallmark Family        | US: HALLMARK DRAMA HD | Hallmark Family
+224 | Entertainment | HGTV                   | US: HGTV HD | Home and Garden
+225 | Entertainment | History                | US: HISTORY HD | History
+226 | Entertainment | Investigation Discovery| US: ID INVESTIGATION DISCOVERY HD | Investigation Discovery
+227 | Entertainment | IFC                    | US: IFC HD | IFC
+228 | Entertainment | ION                    | US: ION | ION Television
+229 | Entertainment | Lifetime               | US: LIFETIME HD | Lifetime HD
+230 | Entertainment | LMN                    | US: LIFETIME MOVIE NETWORK HD | LMN
+231 | Entertainment | Magnolia Network       | AT&T: MAGNOLIA NETWORK ᴿᴬᵂ | Magnolia
+232 | Entertainment | MotorTrend             | US: MOTORTREND HD | MotorTrend
+233 | Entertainment | MTV                    | US: MTV HD | MTV Music Television
+234 | Entertainment | National Geographic    | US: : NATIONAL GEOGRAPHIC HD | National Geographic
+235 | Entertainment | Nat Geo Wild           | US: : NATIONAL GEOGRAPHIC WILD HD | National Geographic Wild
+236 | Entertainment | OWN                    | US: OWN HD | Oprah Winfrey Network
+237 | Entertainment | Oxygen                 | US: OXYGEN HD | Oxygen
+238 | Entertainment | Paramount Network      | US: PARAMOUNT HD | Paramount Network
+239 | Entertainment | Pop                    | US: POP HD | POP
+240 | Entertainment | Reelz                  | US: REELZ FAMUS HD | ReelzChannel
+241 | Entertainment | Science Channel        | US: DISCOVERY SCIENCE HD | Science Channel
+242 | Entertainment | Smithsonian Channel    | US: SMITHSONIAN CHANNEL HD | Smithsonian
+243 | Entertainment | SundanceTV             | US: SUNDANCE HD | SundanceTV
+244 | Entertainment | Syfy                   | US: SYFY HD | Syfy
+245 | Entertainment | TBS                    | US: TBS HD | TBS
+246 | Entertainment | TCM                    | US: TCM HD | Turner Classic
+247 | Entertainment | TLC                    | US: TLC HD | TLC
+248 | Entertainment | TNT                    | US: TNT HD | TNT
+249 | Entertainment | Travel Channel         | US: TRAVEL CHANNEL HD | Travel Channel
+250 | Entertainment | truTV                  | US: TRUTV 4K | truTV
+251 | Entertainment | TV Land                | US: TV LAND HD | TV Land
+252 | Entertainment | TV One                 | US: TV ONE HD | TV One
+253 | Entertainment | USA Network            | US: USA NETWORK HD | USA Network
+254 | Entertainment | VH1                    | US: VH 1 HD | VH1
+255 | Entertainment | Vice                   | US: VICELAND HD | Vice
+256 | Entertainment | WE tv                  | US: WE TV HD | WE tv
+257 | Entertainment | Ovation                | US: OVATION HD | Ovation
+258 | Entertainment | Outdoor Channel        | US: OUTDOOR CHANNEL HD | Outdoor Channel
+259 | Entertainment | INSP                   | US: INSP HD | INSP
+260 | Entertainment | UPtv                   | US: UP TV HD | UPtv
+261 | Entertainment | Adult Swim             | US: ADULT SWIM HD | AdultSwim com Cartoon
+262 | Entertainment | Logo                   | US: LOGO HD | Logo
+270 | Entertainment | MeTV                   | US: ME TV | Me TV Network
+271 | Entertainment | Antenna TV             | US: ANTENNA TV | Antenna TV
+272 | Entertainment | Cozi TV                | US: COZI | Cozi
+273 | Entertainment | Heroes & Icons         | US: HEROES & ICONS | Heroes and Icons
+274 | Entertainment | Start TV               | US: START TV | Start TV
+275 | Entertainment | Grit                   | US: GRIT | Grit
+276 | Entertainment | Laff                   | US:  LAFF TV  HD | Laff
+277 | Entertainment | Bounce                 | US: BOUNCE TV HD | Bounce
+278 | Entertainment | Comet                  | US: COMET HD | Comet
+279 | Entertainment | Buzzr                  | US: BUZZR | BUZZR
+280 | Entertainment | Law & Crime            | US: LAW & CRIME | Law and Crime
+
+# ---------- Sports ----------
+300 | Sports | Altitude Sports        | US: ALTITUDE SPORTS HD | Altitude
+301 | Sports | Altitude Sports 2      | US: ALTITUDE SPORTS 2 HD | Altitude 2
+302 | Sports | ESPN                   | US: ESPN HD | ESPN
+303 | Sports | ESPN2                  | US: ESPN 2 HD | ESPN2
+304 | Sports | ESPNU                  | US: ESPN U HD | ESPNU
+305 | Sports | ESPNews                | US: ESPN NEWS HD | ESPNews
+306 | Sports | FS1                    | US: FOX SPORTS 1 HD@492 | FS1
+307 | Sports | FS2                    | US: FOX SPORTS 2 HD@492 | FS2
+308 | Sports | CBS Sports Network     | US: CBS SPORTS NETWORK HD@492 | CBS Sports Network HD
+309 | Sports | NFL Network            | US: NFL NETWORK HD | NFL Network
+310 | Sports | NFL RedZone            | AT&T: NFL REDZONE ᴿᴬᵂ | NFL RedZone
+311 | Sports | NBA TV                 | AT&T: NBA TV ᴿᴬᵂ | NBA TV
+312 | Sports | NHL Network            | AT&T: NHL NETWORK ᴿᴬᵂ | NHL Network
+313 | Sports | MLB Network            | US: MLB NETWORK | MLB Network
+314 | Sports | MLB Strike Zone        | US: MLB STRIKE ZONE HD | Strike Zone
+315 | Sports | Golf Channel           | US: GOLF CHANNEL HD | Golf Channel
+316 | Sports | Tennis Channel         | US: TENNIS CHANNEL | Tennis Channel
+317 | Sports | Big Ten Network        | US: BIG TEN NETWORK HD | Big Ten Network
+318 | Sports | SEC Network            | US: SEC NETWORK HD@492 | SEC Network
+319 | Sports | ACC Network            | US: ACC NETWORK HD | ACC Network
+320 | Sports | beIN Sports            | US: BEIN SPORTS HD | beIN Sports USA
+321 | Sports | CBS Sports Golazo      | US: CBS SPORTS GALAZO NETWORK 4K | Golazo
+322 | Sports | Fubo Sports Network    | US: FUBO SPORTS NETWORK HD |
+323 | Sports | Fight Network          | US: FIGHT NETWORK HD | Fight Network
+324 | Sports | MAVTV                  | US: MAV TV HD |
+325 | Sports | Sportsman Channel      | US: SPORTSMAN CHANNEL HD | Sportsman Channel
+326 | Sports | SportsGrid             | AT&T: SPORTSGRID ᴿᴬᵂ | SportsGrid
+327 | Sports | WWE                    | US: WWE HD | WWE
+328 | Sports | Denver Nuggets Channel | AT&T: DENVER NUGGETS ᴿᴬᵂ |
+329 | Sports | Colorado Rockies Channel | AT&T: COLORADO ROCKIES ᴿᴬᵂ |
+
+# ---------- Premium Movies ----------
+500 | Premium Movies | HBO                    | US: HBO HD | HBO East
+501 | Premium Movies | HBO 2                  | US: HBO 2 HD | HBO2
+502 | Premium Movies | HBO Signature          | US: HBO SIGNATURE HD | HBO Signature
+503 | Premium Movies | HBO Family             | US: HBO FAMILY HD |
+504 | Premium Movies | HBO Comedy             | US: HBO COMEDY HD | HBO Comedy
+505 | Premium Movies | HBO Zone               | US: HBO ZONE HD | HBO Zone
+506 | Premium Movies | HBO West               | US: HBO WEST HD | HBO West
+510 | Premium Movies | Cinemax                | US: CINEMAX HD | Cinemax HD
+511 | Premium Movies | MoreMax                | US: MOREMAX HD |
+512 | Premium Movies | ActionMax              | US: ACTION MAX HD | ActionMax
+513 | Premium Movies | ThrillerMax            | US: CINEMAX THRILLERMAX HD |
+514 | Premium Movies | 5StarMax               | US: CINEMAX 5 STAR MAX | 5 StarMAX
+515 | Premium Movies | MovieMax               | US: MOVIEMAX HD |
+516 | Premium Movies | OuterMax               | US: OUTERMAX HD |
+520 | Premium Movies | Paramount+ with Showtime | US: SHOWTIME HD | Paramount+ with Showtime
+521 | Premium Movies | Showtime 2             | US: SHOWTIME 2 HD | Showtime 2
+522 | Premium Movies | Showtime Showcase      | US: SHOWTIME SHOWCASE HD | Showtime Showcase
+523 | Premium Movies | Showtime Extreme       | US: SHOWTIME EXTREME HD | Showtime Extreme
+524 | Premium Movies | Showtime Next          | US: SHOWTIME NEXT HD | Showtime Next
+525 | Premium Movies | Showtime Women         | US: SHOWTIME WOMEN HD | Showtime Women
+526 | Premium Movies | Showtime Family Zone   | US: SHOWTIME FAMILY ZONE HD | Showtime Familyzone
+527 | Premium Movies | SHO×BET                | US: SHOWTIME BET HD | SHO x BET
+528 | Premium Movies | The Movie Channel      | US: THE MOVIE CHANNEL HD | The Movie Channel
+530 | Premium Movies | Starz                  | US: STARZ HD | Starz
+531 | Premium Movies | Starz Edge             | US: STARZ EDGE HD | Starz Edge
+532 | Premium Movies | Starz Cinema           | US: STARZ CINEMA HD | Starz Cinema
+533 | Premium Movies | Starz Comedy           | US: STARZ COMEDY HD | Starz Comedy
+534 | Premium Movies | Starz in Black         | US: STARZ BLACK HD | Starz in Black
+535 | Premium Movies | Starz Kids & Family    | US: STARZ KIDS & FAMILY HD | Starz Kids
+536 | Premium Movies | Starz Encore           | US: STARZ ENCORE HD | Starz Encore HD
+537 | Premium Movies | Starz Encore Action    | US: STARZ ENCORE ACTION HD | Starz Encore Action
+538 | Premium Movies | Starz Encore Black     | US: STARZ ENCORE BLACK HD | Starz Encore Black
+539 | Premium Movies | Starz Encore Classic   | US: STARZ ENCORE CLASSIC HD | Starz Encore Classic
+540 | Premium Movies | Starz Encore Family    | US: STARZ ENCORE FAMILY HD | Starz Encore Family
+541 | Premium Movies | Starz Encore Suspense  | AT&T: STARZ ENCORE SUSPENSE ᴿᴬᵂ | Starz Encore Suspense
+542 | Premium Movies | Starz Encore Westerns  | US: STARZ ENCORE WESTERNS HD | Starz Encore Westerns SD
+545 | Premium Movies | MGM+                   | AT&T: MGM+ ᴿᴬᵂ | MGM+
+546 | Premium Movies | MGM+ Hits              | AT&T: MGM+ HITS ᴿᴬᵂ | MGM+ Hits
+547 | Premium Movies | MGM+ Marquee           | AT&T: MGM+ MARQUEE ᴿᴬᵂ | MGM+ Marquee
+548 | Premium Movies | MGM+ Drive-In          | AT&T: MGM+ DRIVE-IN ᴿᴬᵂ | MGM+ Drive-In
+550 | Premium Movies | ScreenPix              | US: SCREENPIX HD | ScreenPix
+551 | Premium Movies | ScreenPix Action       | US: SCREENPIX ACTION HD | ScreenPix Action
+552 | Premium Movies | ScreenPix Voices       | US: SCREENPIX VOICES HD | ScreenPix Voices
+553 | Premium Movies | MoviePlex              | US: MOVIEPLEX HD | MoviePlex
+554 | Premium Movies | FX Movie Channel       | US: FX MOVIES | FX Movie Channel
+555 | Premium Movies | HDNet Movies           | US: HD NET MOVIES HD | HDNet Movies
+556 | Premium Movies | Sony Movie Channel     | US: SONY MOVIE CHANNEL HD | Sony Movie Channel
+557 | Premium Movies | IndiePlex              | US: INDIEPLEX HD | IndiePlex
+558 | Premium Movies | RetroPlex              | US: RETROPLEX HD | RetroPlex
+
+# ---------- Kids & Family ----------
+600 | Kids & Family | Disney Channel         | US: DISNEY CHANNEL HD | Disney Channel
+601 | Kids & Family | Disney Junior          | US: DISNEY JR HD | Disney Junior
+602 | Kids & Family | Disney XD              | US: DISNEY XD HD | Disney XD
+603 | Kids & Family | Nickelodeon            | US: NICKELODEON HD | Nickelodeon
+604 | Kids & Family | Nick Jr.               | US: Nick JR HD | Nick Jr
+605 | Kids & Family | Nicktoons              | US: NICK TOONS HD | Nicktoons
+606 | Kids & Family | TeenNick               | US: TEEN NICK | Teen Nick
+607 | Kids & Family | Cartoon Network        | US: CARTOON NETWORK HD | Cartoon Network
+608 | Kids & Family | Boomerang              | US: BOOMERANG HD | Boomerang
+609 | Kids & Family | Discovery Family       | US: DISCOVERY FAMILY HD | Discovery Family
+610 | Kids & Family | PBS Kids               | US: PBS KIDS | PBS Kids
+611 | Kids & Family | BabyFirst              | US: BABY FIRST HD | BabyFirst
+612 | Kids & Family | MeTV Toons             | US: METV TOONS HD | MeTV Toons
