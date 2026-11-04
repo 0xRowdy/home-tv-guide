@@ -1,15 +1,15 @@
 # Home TV lineup. One line per channel:
-#   number | group | display name | exact Smartiflix stream name | guide search hint (optional)
+#   number | group | display name | exact Smartiflix stream name | guide search hint (optional) | logo URL (optional)
 # The guide hint is resolved to an epgshare01 channel id by resolve_epg.py.
 
 # ---------- Denver Locals ----------
 2   | Denver Locals | CW2 Denver (KWGN)            | US: CW 2 (KWGN) DERVER | KWGN-DT
 4   | Denver Locals | CBS4 Denver (KCNC)           | US: CBS 4 (KCNC) DENVER HD | KCNC-DT
-6   | Denver Locals | Rocky Mountain PBS (KRMA)    | TV: DENVER, CO KRMA PBS 6 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ | KRMA-DT
+6   | Denver Locals | Rocky Mountain PBS (KRMA)    | TV: DENVER, CO KRMA PBS 6 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ | KRMA-DT | http://dtil.tmsimg.com/assets/s32356_ll_h15_ac.png?w=360&h=270
 7   | Denver Locals | Denver7 ABC (KMGH)           | US: ABC 7 (KMGH) DENVER HD | KMGH-DT
 9   | Denver Locals | 9NEWS NBC (KUSA)             | US: NBC 9 (KUSA) DENVER (H) ᴿᴬᵂ | KUSA-DT
-12  | Denver Locals | PBS12 Denver (KBDI)          | TV: DENVER, CO KBDI PBS 12 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ | KBDI-DT
-20  | Denver Locals | My20 Denver (KTVD)           | TV: DENVER, CO KTVD MNT 20 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ | KTVD-DT
+12  | Denver Locals | PBS12 Denver (KBDI)          | TV: DENVER, CO KBDI PBS 12 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ | KBDI-DT | http://dtil.tmsimg.com/assets/s32356_ll_h15_ac.png?w=360&h=270
+20  | Denver Locals | My20 Denver (KTVD)           | TV: DENVER, CO KTVD MNT 20 A3 HD (D11) DENVER ᶜᶦᵗʸ ᴿᴬᵂ | KTVD-DT | http://dtil.tmsimg.com/assets/GNLZZGG0028Y3ZQ.png?w=360&h=270
 31  | Denver Locals | FOX31 Denver (KDVR)          | US: FOX 31 (KDVR) DENVER HD | KDVR-DT
 40  | Denver Locals | CBS News Colorado 24/7       | AT&T: CBS NEWS COLORADO ᴿᴬᵂ |
 41  | Denver Locals | Denver7 News 24/7            | PRIME: ABC DENVER NEWS (KMGH) ᴿᴬᵂ |
