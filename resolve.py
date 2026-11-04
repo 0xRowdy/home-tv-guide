@@ -1,9 +1,45 @@
 """Resolve lineup.txt against Smartiflix's stream list and the epgshare01 guide ids.
 
-Usage: python3 resolve.py <streams.json> <us2_ids.txt> <sports_ids.txt>
-Writes lineup_resolved.tsv (number, group, name, stream_id, epg_id, logo) and prints a review table.
+Usage: python3 resolve.py
+Reads the Smartiflix login from .env, downloads the stream list and the epgshare01
+US guide channel lists, then writes lineup_resolved.tsv
+(number, group, name, stream_id, epg_id, logo) and prints a review table.
 """
-import json, re, sys
+import gzip, json, os, re, sys, tempfile, urllib.request
+import xml.etree.ElementTree as ET
+
+GUIDES = ["https://epgshare01.online/epgshare01/epg_ripper_US2.xml.gz",
+          "https://epgshare01.online/epgshare01/epg_ripper_US_SPORTS1.xml.gz"]
+
+def get(url):
+    req = urllib.request.Request(url, headers={"User-Agent": "TiviMate/5.3.3"})
+    return urllib.request.urlopen(req, timeout=300)
+
+def fetch_streams(tmp):
+    env = dict(l.strip().split("=", 1) for l in open(".env") if "=" in l)
+    url = f'{env["XTREAM_SERVER"]}/player_api.php?username={env["XTREAM_USER"]}&password={env["XTREAM_PASS"]}&action=get_live_streams'
+    path = os.path.join(tmp, "streams.json")
+    with get(url) as r, open(path, "wb") as f:
+        f.write(r.read())
+    return path
+
+def fetch_guide_ids(url, tmp):
+    """Write id|display-name|programme-count lines for one epgshare01 file."""
+    gz = os.path.join(tmp, "guide.xml.gz")
+    with get(url) as r, open(gz, "wb") as f:
+        f.write(r.read())
+    names, cnt = {}, {}
+    for _, el in ET.iterparse(gzip.open(gz), events=("end",)):
+        if el.tag == "channel":
+            names[el.get("id")] = el.findtext("display-name") or ""
+        elif el.tag == "programme":
+            cnt[el.get("channel")] = cnt.get(el.get("channel"), 0) + 1
+        el.clear()
+    path = os.path.join(tmp, url.rsplit("/", 1)[1] + ".ids")
+    with open(path, "w", encoding="utf-8") as f:
+        for k, v in names.items():
+            f.write(f"{k}|{v.replace('|', ' ')}|{cnt.get(k, 0)}\n")
+    return path
 
 def norm(s):
     s = s.lower().replace("&", " and ").replace("+", " plus ")
@@ -37,12 +73,13 @@ def best_epg(hint, ids):
     cands.sort()
     return (cands[0][1] if cands else None), [c for _, c in cands[1:4]]
 
-def main(streams_path, us2_path, sports_path):
-    streams = json.load(open(streams_path, encoding="utf-8"))
+def main():
+    with tempfile.TemporaryDirectory() as tmp:
+        streams = json.load(open(fetch_streams(tmp), encoding="utf-8"))
+        ids = [i for url in GUIDES for i in load_ids(fetch_guide_ids(url, tmp))]
     by_name = {}
     for s in streams:
         by_name.setdefault(s["name"], []).append(s)
-    ids = load_ids(us2_path) + load_ids(sports_path)
     rows, problems = [], 0
     for line in open("lineup.txt", encoding="utf-8"):
         if not line.strip() or line.startswith("#"):
@@ -59,13 +96,17 @@ def main(streams_path, us2_path, sports_path):
         if not sid: flag.append("NO STREAM")
         if len(matches) > 1: flag.append(f"{len(matches)} same-name streams")
         if hint and not epg: flag.append("NO GUIDE")
-        problems += bool(flag)
+        problems += any(f.startswith("NO ") for f in flag)
         rows.append((num, group, name, sid, epg or "", logo))
         print(f"{num:>4} {name[:26]:26} {str(sid):>8}  {(epg or '-')[:44]:44} {' / '.join(flag)}  {'alt: ' + ', '.join(alts) if alts and not flag else ''}")
     with open("lineup_resolved.tsv", "w", encoding="utf-8") as f:
         for r in rows:
             f.write("\t".join(str(x) for x in r) + "\n")
     print(f"\n{len(rows)} channels, {problems} with problems")
+    missing = [r for r in rows if not r[3]]
+    if missing:
+        print(f"WARNING: {len(missing)} channels not found on Smartiflix (left out of the playlist): "
+              + ", ".join(r[2] for r in missing))
 
 if __name__ == "__main__":
-    main(*sys.argv[1:4])
+    main()
