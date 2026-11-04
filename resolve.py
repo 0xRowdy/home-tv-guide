@@ -1,9 +1,10 @@
 """Resolve lineup.txt against Smartiflix's stream list and the epgshare01 guide ids.
 
-Usage: python3 resolve.py
-Reads the Smartiflix login from .env, downloads the stream list and the epgshare01
-US guide channel lists, then writes lineup_resolved.tsv
+Usage: python3 resolve.py <tvs/NAME.env> <out.tsv>
+Reads that TV's Smartiflix login, downloads its stream list and the epgshare01
+US guide channel lists, then writes <out.tsv>
 (number, group, name, stream_id, epg_id, logo) and prints a review table.
+Stream IDs can differ between accounts, so each TV gets its own file.
 """
 import gzip, json, os, re, sys, tempfile, urllib.request
 import xml.etree.ElementTree as ET
@@ -15,8 +16,8 @@ def get(url):
     req = urllib.request.Request(url, headers={"User-Agent": "TiviMate/5.3.3"})
     return urllib.request.urlopen(req, timeout=300)
 
-def fetch_streams(tmp):
-    env = dict(l.strip().split("=", 1) for l in open(".env") if "=" in l)
+def fetch_streams(tmp, env_path):
+    env = dict(l.strip().split("=", 1) for l in open(env_path) if "=" in l)
     url = f'{env["XTREAM_SERVER"]}/player_api.php?username={env["XTREAM_USER"]}&password={env["XTREAM_PASS"]}&action=get_live_streams'
     path = os.path.join(tmp, "streams.json")
     with get(url) as r, open(path, "wb") as f:
@@ -73,9 +74,9 @@ def best_epg(hint, ids):
     cands.sort()
     return (cands[0][1] if cands else None), [c for _, c in cands[1:4]]
 
-def main():
+def main(env_path, out_path):
     with tempfile.TemporaryDirectory() as tmp:
-        streams = json.load(open(fetch_streams(tmp), encoding="utf-8"))
+        streams = json.load(open(fetch_streams(tmp, env_path), encoding="utf-8"))
         ids = [i for url in GUIDES for i in load_ids(fetch_guide_ids(url, tmp))]
     by_name = {}
     for s in streams:
@@ -101,7 +102,7 @@ def main():
         problems += any(f.startswith("NO ") for f in flag)
         rows.append((num, group, name, sid, epg or "", logo))
         print(f"{num:>4} {name[:26]:26} {str(sid):>8}  {(epg or '-')[:44]:44} {' / '.join(flag)}  {'alt: ' + ', '.join(alts) if alts and not flag else ''}")
-    with open("lineup_resolved.tsv", "w", encoding="utf-8") as f:
+    with open(out_path, "w", encoding="utf-8") as f:
         for r in rows:
             f.write("\t".join(str(x) for x in r) + "\n")
     print(f"\n{len(rows)} channels, {problems} with problems")
@@ -111,4 +112,4 @@ def main():
               + ", ".join(r[2] for r in missing))
 
 if __name__ == "__main__":
-    main()
+    main(*sys.argv[1:3])
