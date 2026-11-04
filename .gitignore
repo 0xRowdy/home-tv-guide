@@ -4,3 +4,4 @@ cache/
 site/
 __pycache__/
 backups/
+.tv/
